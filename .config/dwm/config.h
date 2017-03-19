@@ -57,8 +57,11 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "urxvtc", NULL };
+static const char *dmenucmd[]  = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *termcmd[]   = { "urxvtc", NULL };
+static const char *toggleVol[] = { "amixer", "set", "Master", "toggle", NULL };
+static const char *incVol[]    = { "amixer", "-M", "set", "Master", "5%+", NULL };
+static const char *decVol[]    = { "amixer", "-M", "set", "Master", "5%-", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
@@ -88,6 +91,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ NULL,				0x1008ff12,spawn,	   {.v = toggleVol } },
+	{ NULL,				0x1008ff11,spawn,	   {.v = decVol } },
+	{ NULL,				0x1008ff13,spawn,	   {.v = incVol } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
