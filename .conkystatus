@@ -1,0 +1,12 @@
+out_to_console yes
+out_to_x no
+background no
+update_interval 1
+total_run_times 0
+use_spacer none
+short_units yes
+font Terminus:size=22
+xftfont Terminus:size=23
+
+TEXT
+[${cpu cpu0}% ${acpitemp}C] | [$memperc%] | ${if_match "${wireless_essid wlp2s0}" == "off/any"}[Ether/NC]${else}[${wireless_essid wlp2s0}]${endif} | [${battery_short BAT0}] | [${exec speakersymbol}${exec amixer -M get Master | egrep -o "[0-9]+%" | head -1 | egrep -o "[0-9]*"}%] | [${time %a %b %e} ${time %I:%M:%S %p}]

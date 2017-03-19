@@ -37,9 +37,6 @@ URxvt*color15 : #EEEEEC
 URxvt*font: xft:Anonymous Pro:pixelsize=13
 URxvt*boldFont: xft:Anonymous Pro:bold:pixelsize=13
 
-!URxvt*font: xft:profont:pixelsize=12
-!URxvt*boldFont: xft:profont:bold:pixelsize=12
-
 !urxvt extensions:
 
 URxvt.perl-ext-common:  default,matcher,tabbedex
