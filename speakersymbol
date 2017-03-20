@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mute=$(amixer -M get Master | grep Mono: | cut -d' ' -f8)
+if [[ $mute == "[off]" ]] ; then #|| $(amixer -M get master | egrep -o "[0-9]+%" | head -1 | egrep -o "[0-9]*") -eq "0" ]] ; then
+	echo 🔇
+else
+	echo 🔊
+fi

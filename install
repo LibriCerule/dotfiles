@@ -1,16 +1,25 @@
 #!/bin/bash
 
+cp .xinitrc ~
+cp .Xresources ~
+cp .conkystatus ~
+cp -r .config/dwm ~/.config
+
+sudo chmod +x speakersymbol
+sudo cp speakersymbol /usr/local/bin
+sudo cp issue /etc
+
 cd ~/.config
 git clone https://aur.archlinux.org/package-query.git
 cd package-query
-makepkg -si
+makepkg -si --noconfirm
 cd ..
 git clone https://aur.archlinux.org/yaourt.git
 cd yaourt
-makepkg -si
+makepkg -si --noconfirm
 cd ..
 
-yaourt -S acpi xorg-xinit xorg-server xorg-xrdb libxft freetype2 libxinerama alsa-utils dmenu rxvt-unicode ttf-anonymous-pro git wget chromium htop xorg-xev conky xorg-xsetroot ttf-symbola
+yaourt -S --noconfirm acpi xorg-xinit xorg-server xorg-xrdb libxft freetype2 libxinerama alsa-utils dmenu rxvt-unicode ttf-anonymous-pro git wget chromium htop xorg-xev conky xorg-xsetroot ttf-symbola
 
 sudo sh -c 'echo "options snd_mia index=0" > /etc/modprobe.d/alsa-base.conf'
 sudo sh -c 'echo "options snd_hda_intel index=1" >> /etc/modprobe.d/alsa-base.conf'
