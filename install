@@ -11,3 +11,10 @@ makepkg -si
 cd ..
 
 yaourt -S acpi xorg-xinit xorg-server xorg-xrdb libxft freetype2 libxinerama alsa-utils dmenu rxvt-unicode ttf-anonymous-pro git wget chromium htop xorg-xev conky xorg-xsetroot ttf-symbola
+
+sudo sh -c 'echo "options snd_mia index=0" > /etc/modprobe.d/alsa-base.conf'
+sudo sh -c 'echo "options snd_hda_intel index=1" >> /etc/modprobe.d/alsa-base.conf'
+
+cd ~/.config/dwm
+
+sudo make install
