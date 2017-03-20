@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cd ~/.config
+git clone https://aur.archlinux.org/package-query.git
+cd package-query
+makepkg -si
+cd ..
+git clone https://aur.archlinux.org/yaourt.git
+cd yaourt
+makepkg -si
+cd ..
+
+yaourt -S acpi xorg-xinit xorg-server xorg-xrdb libxft freetype2 libxinerama alsa-utils dmenu rxvt-unicode ttf-anonymous-pro git wget chromium htop xorg-xev conky xorg-xsetroot ttf-symbola
